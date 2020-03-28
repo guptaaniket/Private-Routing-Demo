@@ -1,10 +1,6 @@
 {
-  "name": "react-role-based-authorization-example",
+  "name": "lib-demo",
   "version": "1.0.0",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/cornflourblue/react-role-based-authorization-example.git"
-  },
   "license": "MIT",
   "scripts": {
     "start": "webpack-dev-server --open"

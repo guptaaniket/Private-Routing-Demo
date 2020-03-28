@@ -1,39 +1,49 @@
-import React from 'react';
-
-import { userService } from '@/_services';
+import React from "react";
+import { AddBook } from "@/_components";
+import { userService } from "@/_services";
 
 class AdminPage extends React.Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.state = {
-            users: null
-        };
-    }
+    this.state = {
+      users: null
+    };
+  }
 
-    componentDidMount() {
-        userService.getAll().then(users => this.setState({ users }));
-    }
+  componentDidMount() {
+    userService.getAll().then(users => this.setState({ users }));
+  }
 
-    render() {
-        const { users } = this.state;
-        return (
-            <div>
-                <h1>Admin</h1>
-                <p>This page can only be accessed by administrators.</p>
-                <div>
-                    All users from secure (admin only) api end point:
-                    {users &&
-                        <ul>
-                            {users.map(user =>
-                                <li key={user.id}>{user.firstName} {user.lastName}</li>
-                            )}
-                        </ul>
-                    }
-                </div>
-            </div>
-        );
-    }
+  render() {
+    const { users } = this.state;
+    return (
+      <div style={{ padding: "2rem" }}>
+        <div style={{ display: "flex", flexDirection: "row" }}>
+          <h3>Admin</h3>
+          <div>
+            <p style={{ marginTop: "10px", marginRight: "5px" }}>
+              (can only be accessed by <b>admin</b>.)
+            </p>
+          </div>
+        </div>
+        <button
+          style={{ float: "right", marginTop: "-50px" }}
+          className="btn btn-dark"
+        >
+          Add Book
+        </button>
+        <div style={{ borderTop: "solid 1px black" }}></div>
+        {/* <form>
+        <input type='text'>Book Name</input>
+        <input type='text'>Description</input>
+        <input type='text'>Writer</input>
+        <input type='text'>Price</input>
+
+        </form> */}
+      </div>
+    );
+  }
 }
 
 export { AdminPage };
